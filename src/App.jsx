@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import SideBar from './components/Menu'
-import Form from './components/Form'
+// import SideBar from './components/SideBar'
 import './App.css'
 
 function App() {
@@ -8,7 +7,7 @@ function App() {
 
   return (
     <>
-    <SideBar />
+    {/* <SideBar /> */}
   <h1>Esto es FINDER</h1>
   {/* <Form /> */}
     </>

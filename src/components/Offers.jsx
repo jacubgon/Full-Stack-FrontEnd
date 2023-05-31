@@ -3,6 +3,7 @@ import offersService from "../services/offersService";
 import { Card, CardActionArea, CardContent, IconButton } from "@mui/material";
 import FavoriteBorderTwoToneIcon from '@mui/icons-material/FavoriteBorderTwoTone';
 import Icon from '@mui/material/Icon';
+import { FaHeart, FaCross } from "react-icons/fa";
 
 <Icon>star</Icon>;
 
@@ -24,23 +25,19 @@ function Offers() {
 
   return (
     <div>
-      <h2>Estas son las Ofertas</h2>
 
       <div className="companyContainer">
         {offers.map((offer) => (
-          <CardActionArea key={offer._id}>
+          <CardActionArea 
+          className='cardContainer'
+          key={offer._id}>
             <h4>{offer.titulo}</h4>
             <p>{offer.descripcion}</p>
             <p>{offer.requisitos}</p>
             <p>{offer.fechaPublicacion}</p>
-            {offer.empresa && (
-        <p>
-          {offer.empresa.nombre} {/* Acceder al nombre de la empresa */}
-        </p>
-      )}
-            <p>{offer.empresa}</p>
-            <p>{offer.candidatos.candidato}</p>
-            <Icon>star</Icon>
+            <button onClick={() => handleLikeCandidate(candidate._id)}>
+                <FaHeart />
+              </button>
           </CardActionArea>
         ))}
       </div>

@@ -24,11 +24,12 @@ function Companies() {
 
   return (
     <div>
-      <h2>Estas son las Empresas</h2>
 
       <div className="companyContainer">
         {companies.map((company) => (
-          <CardActionArea key={company._id}>
+          <CardActionArea 
+          className='cardContainer'
+          key={company._id}>
             <h4>{company.nombre}</h4>
             <p>{company.descripcion}</p>
             <p>{company.ubicacion}</p>

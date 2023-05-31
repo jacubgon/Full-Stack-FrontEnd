@@ -25,19 +25,21 @@ function Candidates() {
 
   return (
     <div>
-      <h2>Estos son los Candidatos</h2>
       <div className="companyContainer">
         {candidates.map((candidate) => (
-          <CardActionArea key={candidate._id}
+          <CardActionArea 
+          className='card' 
+          key={candidate._id}
           style={{backgroundColor:'aquamarine',margin:'10px',
            boxShadow: '13px 9px 20px -4px rgba(7,122,128,0.66)',
            borderRadius:'10px'}}>
+            <img src="" alt="" />
             <h4>{candidate.nombre}</h4>
-            <p>{candidate.email}</p>
             <p>{candidate.educacion}</p>
             <p>{candidate.habilidades}</p>
-            <p>{candidate.ubicacion}</p>
             <p>{candidate.experiencia}</p>
+            <p>{candidate.ubicacion}</p>
+            
             {/* <p>{candidate.likes}</p>
           <p>{candidate.procesosPendientes}</p> */}
             <div style={{marginBottom: '10px'}}>

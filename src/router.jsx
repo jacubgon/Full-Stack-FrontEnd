@@ -2,16 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import Layout from "./pages/Layout";
+import Register from "./pages/Register";
 import Candidates from "./components/Candidates";
 import Companies from "./components/Companies";
 import Offer from "./components/Offers";
 import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
-//     {
-// path:"/",
-// element: <App />
-// },
+
   {
     path: "/",
     element: <Layout />,
@@ -31,6 +29,10 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {path:"/register",
+    element: <Register />,
+  errorElement: <ErrorPage />,
+}
 ]);
 
 export default router;

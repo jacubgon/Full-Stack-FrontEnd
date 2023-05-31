@@ -19,6 +19,22 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
+.MuiContainer-root {
+background-color: #747bff;
+}
+
+.MuiButtonBase-root{
+  background-color: #747bff;
+}
+
+.MuiContainer-maxWidthXl{
+
+}
+.css-19r6kue-MuiContainer-root{
+
+}
+
 a:hover {
   color: #535bf2;
 }
@@ -55,13 +71,19 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* .companyContainer {
+.cardContainer {
+  background-color: aquamarine;
   display: flex;
+  box-shadow: 13px 9px 20px -4px rgba(7,122,128,0.66);
+  border-radius: 8px;
 }
-
-.candidateContainer {
+/* /* .companyContainer {
   display: flex;
 } */
+
+/* .candidateContainer {
+  display: flex;
+} */ 
 
 @media (prefers-color-scheme: light) {
   :root {
