@@ -8,13 +8,14 @@ const endpointCompanies = config.apiURL + '/companies'
 function setJWT(jwt) {
 	localStorage.setItem('token', jwt)
 	http.setToken(jwt)
+	
 
 	return decodeToken(jwt)
 }
 
 async function signup(payload) {
 	const { headers } = await http.post(endpointCandidates + '/signup', payload)
-
+console.log(headers);
 	return setJWT(headers['x-auth-token'])
 }
 

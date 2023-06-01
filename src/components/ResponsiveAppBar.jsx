@@ -17,7 +17,8 @@ import { NavLink } from 'react-router-dom'
 const pages = [{label: "Candidatos", path: "/candidates"},{label: "Empresas", path: "/companies"},
 {label: "Ofertas", path: "/offers"}]
 // const pages = 'Candidatos', 'Empresas', 'Ofertas'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Registrar', 'Login', 'Logout'];
+// const settings=[{label: "Login", path: "/login"}]
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "../components/commons/Form";
 import authService from '../services/authService'
+
 function Register() {
 
   const handleSubmit = (data) => {

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import companiesService from "../services/companiesService";
-import { Card, CardActionArea, CardContent } from "@mui/material";
-import {
-  CardGiftcard,
-  CardGiftcardRounded,
-  CardMembership,
-} from "@mui/icons-material";
+import { CardActionArea } from "@mui/material";
+
 
 function Companies() {
   const [companies, setCompanies] = useState([]);
@@ -28,7 +24,7 @@ function Companies() {
       <div className="companyContainer">
         {companies.map((company) => (
           <CardActionArea 
-          className='cardContainer'
+          className='cardCon'
           key={company._id}>
             <h4>{company.nombre}</h4>
             <p>{company.descripcion}</p>
