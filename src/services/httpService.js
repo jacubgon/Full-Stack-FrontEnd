@@ -5,7 +5,7 @@ axios.interceptors.response.use(false, function (error) {
 	if (error.response.status >= 500) {
 		console.log('esto es un error')
 	} else if (error.response.status >= 400) {
-		console.log('esto es un error');
+		console.log('esto es un error en el interceptor de axios');
 	}
 	return Promise.reject(error)
 })

@@ -2,7 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import Layout from "./pages/Layout";
-import Register from "./pages/Register";
+import RegisterCandidates from "./pages/RegisterCandidates";
+import RegisterCompanies from "./pages/RegisterCompanies";
 import Login from "./pages/Login";
 import LogOut from "./pages/LogOut";
 import Candidates from "./components/Candidates";
@@ -10,6 +11,9 @@ import Companies from "./components/Companies";
 import Offer from "./components/Offers";
 import ErrorPage from "./pages/ErrorPage";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import CreateOffer from "./pages/CreateOffer";
+import UpdateOffer from "./pages/UpdateOffer";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,11 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/candidates",
-        element: (
-          <ProtectedRoute role="isAuth">
-            <Candidates />
-          </ProtectedRoute>
-        ),
+        element: <Candidates />,
       },
       {
         path: "/companies",
@@ -30,26 +30,49 @@ const router = createBrowserRouter([
       },
       {
         path: "/offers",
-        element: <Offer />,
+        children: [
+          {
+            path: "/offers",
+            element: <Offer />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/offers/new",
+            element: (
+              <ProtectedRoute role="company">
+                <CreateOffer />
+              </ProtectedRoute>
+            ),
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/offers/update/:offerId",
+            element: <UpdateOffer />,
+            errorElement: <ErrorPage />,
+          }
+        ],
       },
+      {
+        path: "/registerCandidates",
+        element: (
+          <ProtectedRoute role="notAuth">
+            <RegisterCandidates />
+          </ProtectedRoute>
+        ),
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/registerCompanies",
+        element: (
+          <ProtectedRoute role="notAuth">
+            <RegisterCompanies />
+          </ProtectedRoute>
+        ),
+        errorElement: <ErrorPage />,
+      },
+      { path: "/login", element: <Login />, errorElement: <ErrorPage /> },
+      { path: "/logout", element: <LogOut />, errorElement: <ErrorPage /> },
     ],
-  },
-  {
-    path: "/register",
-    element: (
-      <ProtectedRoute role="notAuth">
-        <Register />
-      </ProtectedRoute>
-    ),
-    errorElement: <ErrorPage />,
-  },
-  { path: "/login",
-    element: <Login />,
-    errorElement: <ErrorPage /> 
-  },
-  { path: "/logout",
-    element: <LogOut />,
-    errorElement: <ErrorPage /> 
   },
 ]);
 

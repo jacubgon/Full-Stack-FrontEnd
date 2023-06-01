@@ -12,8 +12,13 @@ function getAllCompanies(){
     return http.get(getEndpoint())
 }
 
+function getCompanyOffers(id){
+    return http.get(endpoint + '/' + id + '/offers')
+}
+
 const candidatesService = {
-    getAllCompanies
+    getAllCompanies,
+    getCompanyOffers
 }
 
 export default candidatesService

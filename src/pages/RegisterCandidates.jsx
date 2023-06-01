@@ -1,14 +1,18 @@
 import React from "react";
 import Form from "../components/commons/Form";
 import authService from '../services/authService'
+import {useAuth} from "../context/auth";
+import { useNavigate } from "react-router-dom";
+function RegisterCandidates() {
 
-function Register() {
+  const [user, dispatch] = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = (data) => {
     authService.signup(data)
    .then(response => {
-     console.log("Usuario registrado exitosamente");
-     console.log(response);
+    dispatch({ type: "LOGIN", payload: response });
+    navigate("/");
    })
   }
 
@@ -32,4 +36,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default RegisterCandidates;

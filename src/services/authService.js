@@ -15,15 +15,20 @@ function setJWT(jwt) {
 
 async function signup(payload) {
 	const { headers } = await http.post(endpointCandidates + '/signup', payload)
-console.log(headers);
-	return setJWT(headers['x-auth-token'])
+	let token = headers['x-auth-token']
+if (!token)	{
+	const { headers } = await http.post(endpointCompanies + '/signup', payload)
+	token = headers['x-auth-token']
 }
 
-// async function signup(payload) {
-// 	const { headers } = await http.post(endpointCompanies + '/signup', payload)
+	return setJWT(token)
+}
 
-// 	return setJWT(headers['x-auth-token'])
-// }
+async function signupCompany(payload) {
+	const { headers } = await http.post(endpointCompanies + '/signup', payload)
+
+	return setJWT(headers['x-auth-token'])
+}
 
 async function login(payload) {
 	const { headers } = await http.post(endpointCandidates + '/signin', payload)
@@ -57,6 +62,7 @@ function getCurrentUser() {
 
 const authService = {
 	signup,
+	signupCompany,
 	login,
 	logout,
 	getCurrentUser,

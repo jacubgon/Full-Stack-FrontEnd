@@ -10,18 +10,24 @@ function Layout() {
   return (
     <>
       <ResponsiveAppBar />
+      
       {user.isAuth ? (
         <Link to="/logout">LogOut</Link>
       ) : (
         <>
           <Link to="/login">Login</Link>
           <br />
-          <Link to="/register">Register</Link>
+          <Link to="/registerCandidates">Registrar Candidatos</Link>
           <br />
+          <Link to="/registerCompanies">Registrar Empresas</Link>
+         
+
         </>
       )}
 
       <h2>Esto es Finder!</h2>
+
+      
       <Outlet />
     </>
   );

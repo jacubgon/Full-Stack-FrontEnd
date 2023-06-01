@@ -24,7 +24,7 @@ function Companies() {
       <div className="companyContainer">
         {companies.map((company) => (
           <CardActionArea 
-          className='cardCon'
+          className='cardContainer'
           key={company._id}>
             <h4>{company.nombre}</h4>
             <p>{company.descripcion}</p>

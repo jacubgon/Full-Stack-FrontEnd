@@ -72,18 +72,9 @@ button:focus-visible {
 }
 
 .cardContainer {
-  background-color: aquamarine;
   display: flex;
-  box-shadow: 13px 9px 20px -4px rgba(7,122,128,0.66);
-  border-radius: 8px;
+  box-shadow: 13px 9px 20px -4px rgba(56, 27, 161, 0.66);
 }
-/* /* .companyContainer {
-  display: flex;
-} */
-
-/* .candidateContainer {
-  display: flex;
-} */ 
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -91,7 +82,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #030985;
   }
   button {
     background-color: #f9f9f9;
