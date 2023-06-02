@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import offersService from "../services/offersService";
-import { Card, CardActionArea, CardContent, IconButton } from "@mui/material";
-import Icon from "@mui/material/Icon";
+import { CardActionArea } from "@mui/material";
 import { FaHeart, FaCross } from "react-icons/fa";
 import { useAuth } from "../context/auth";
 import companiesService from "../services/companiesService";

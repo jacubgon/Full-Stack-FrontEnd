@@ -16,9 +16,14 @@ function getCompanyOffers(id){
     return http.get(endpoint + '/' + id + '/offers')
 }
 
+function likedCandidates(companyId, candidateId){
+    return http.get(endpoint + '/' +companyId + '/liked/' + candidateId)
+}
+
 const candidatesService = {
     getAllCompanies,
-    getCompanyOffers
+    getCompanyOffers,
+    likedCandidates
 }
 
 export default candidatesService

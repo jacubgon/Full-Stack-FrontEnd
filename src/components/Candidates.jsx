@@ -3,13 +3,13 @@ import candidatesService from "../services/candidatesService";
 import { CardActionArea } from "@mui/material";
 import { FaHeart, FaCross } from "react-icons/fa";
 import companiesService from "../services/companiesService";
-import { useAuth } from "../context/auth";
-
+import { authState } from "../services/authService";
 
 
 function Candidates() {
+  const { user } = authState();
   const [candidates, setCandidates] = useState([]);
-  const [companies, setCompanies] = useState([]);
+
 
   useEffect(() => {
     candidatesService
@@ -23,21 +23,28 @@ function Candidates() {
       });
   }, []);
 
-  const handleLikeCandidate = (candidateId,empresaId) => {
-    if (empresaId) {
-      console.log(`Dando like al candidato con ID: ${candidateId} desde la empresa con ID: ${empresaId}`);
-    } else {
-      console.log("Error: La empresa no está logueada.");
-    }
+  const handleLikeCandidate = (candidateId) => {
+   
+      const companyId = user.companyId;
+      console.log(companyId);
+      companiesService
+        .likedCandidates(companyId, candidateId)
+        .then((res) => {
+          console.log("Candidato agregado a los likes de la empresa");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+   
   };
 
   return (
     <div>
       <div className="companyContainer">
         {candidates.map((candidate) => (
-          <CardActionArea 
-          className='cardContainer' 
-          key={candidate._id}
+          <CardActionArea
+            className="cardContainer"
+            key={candidate._id}
           >
             <img src="" alt="" />
             <h4>{candidate.nombre}</h4>
@@ -45,11 +52,11 @@ function Candidates() {
             <p>{candidate.habilidades}</p>
             <p>{candidate.experiencia}</p>
             <p>{candidate.ubicacion}</p>
-            <div style={{marginBottom: '10px'}}>
+            <div style={{ marginBottom: "10px" }}>
               <button onClick={() => handleLikeCandidate(candidate._id)}>
                 <FaHeart />
               </button>
-              <button style={{marginLeft:'30px'}}>
+              <button style={{ marginLeft: "30px" }}>
                 <FaCross />
               </button>
             </div>
